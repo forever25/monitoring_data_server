@@ -1,0 +1,126 @@
+[2022-08-08T10:26:53.055] [ERROR] application - Executing (default): select 
+    su.*,sr.roleName ,sr.id roleId
+    from 
+    monitor.sys_users su
+    left join monitor.sys_user_roles sur  on su.id=sur.uid 
+    left join monitor.sys_roles sr on sr.id=sur.uid 
+    where 
+    su.username like '%%' limit 0,10;
+[2022-08-08T10:26:53.088] [ERROR] application - Executing (default): SELECT FOUND_ROWS() AS count
+[2022-08-08T10:27:03.889] [ERROR] application - Executing (default): select 
+    su.*,sr.roleName ,sr.id roleId
+    from 
+    monitor.sys_users su
+    left join monitor.sys_user_roles sur  on su.id=sur.uid 
+    left join monitor.sys_roles sr on sr.id=sur.uid 
+    where 
+    su.username like '%%' limit 0,10;
+[2022-08-08T10:27:03.920] [ERROR] application - Executing (default): SELECT FOUND_ROWS() AS count
+[2022-08-08T13:37:16.615] [ERROR] application - Executing (default): select 
+    su.*,sr.roleName ,sr.id roleId
+    from 
+    monitor.sys_users su
+    left join monitor.sys_user_roles sur  on su.id=sur.uid 
+    left join monitor.sys_roles sr on sr.id=sur.uid 
+    where 
+    su.username like '%%' limit 0,10;
+[2022-08-08T13:37:16.645] [ERROR] application - Executing (default): SELECT FOUND_ROWS() AS count
+[2022-08-08T13:37:26.220] [ERROR] application - Executing (default): select 
+    su.*,sr.roleName ,sr.id roleId
+    from 
+    monitor.sys_users su
+    left join monitor.sys_user_roles sur  on su.id=sur.uid 
+    left join monitor.sys_roles sr on sr.id=sur.uid 
+    where 
+    su.username like '%%' limit 0,10;
+[2022-08-08T13:37:26.246] [ERROR] application - Executing (default): SELECT FOUND_ROWS() AS count
+[2022-08-08T13:38:48.308] [ERROR] application - Executing (default): select 
+    su.*,sr.roleName ,sr.id roleId
+    from 
+    monitor.sys_users su
+    left join monitor.sys_user_roles sur  on su.id=sur.uid 
+    left join monitor.sys_roles sr on sr.id=sur.uid 
+    where 
+    su.username like '%%' limit 0,10;
+[2022-08-08T13:38:48.338] [ERROR] application - Executing (default): SELECT FOUND_ROWS() AS count
+[2022-08-08T13:39:14.910] [ERROR] application - Executing (default): select 
+    su.*,sr.roleName ,sr.id roleId
+    from 
+    monitor.sys_users su
+    left join monitor.sys_user_roles sur  on su.id=sur.uid 
+    left join monitor.sys_roles sr on sr.id=sur.uid 
+    where 
+    su.username like '%%' limit 0,10;
+[2022-08-08T13:39:14.941] [ERROR] application - Executing (default): SELECT FOUND_ROWS() AS count
+[2022-08-08T13:42:31.525] [ERROR] application - Executing (default): select 
+    su.*,sr.roleName ,sr.id roleId
+    from 
+    monitor.sys_users su
+    left join monitor.sys_user_roles sur  on su.id=sur.uid 
+    left join monitor.sys_roles sr on sr.id=sur.uid 
+    where 
+    su.username like '%%' limit 0,10;
+[2022-08-08T13:42:31.556] [ERROR] application - Executing (default): SELECT FOUND_ROWS() AS count
+[2022-08-08T13:43:12.860] [ERROR] application - Executing (default): select 
+    su.*,sr.roleName ,sr.id roleId
+    from 
+    monitor.sys_users su
+    left join monitor.sys_user_roles sur  on su.id=sur.uid 
+    left join monitor.sys_roles sr on sr.id=sur.uid 
+    where 
+    su.username like '%%' limit 0,10;
+[2022-08-08T13:43:12.895] [ERROR] application - Executing (default): SELECT FOUND_ROWS() AS count
+[2022-08-08T13:44:00.050] [ERROR] application - Executing (default): select 
+    su.*,sr.roleName ,sr.id roleId
+    from 
+    monitor.sys_users su
+    left join monitor.sys_user_roles sur  on su.id=sur.uid 
+    left join monitor.sys_roles sr on sr.id=sur.uid 
+    where 
+    su.username like '%%' limit 0,10;
+[2022-08-08T13:44:00.075] [ERROR] application - Executing (default): SELECT FOUND_ROWS() AS count
+[2022-08-08T13:44:19.603] [ERROR] application - Executing (default): select 
+    su.*,sr.roleName ,sr.id roleId
+    from 
+    monitor.sys_users su
+    left join monitor.sys_user_roles sur  on su.id=sur.uid 
+    left join monitor.sys_roles sr on sr.id=sur.uid 
+    where 
+    su.username like '%%' limit 0,10;
+[2022-08-08T13:44:19.639] [ERROR] application - Executing (default): SELECT FOUND_ROWS() AS count
+[2022-08-08T13:45:02.699] [ERROR] application - Executing (default): select 
+    su.*,sr.roleName ,sr.id roleId
+    from 
+    monitor.sys_users su
+    left join monitor.sys_user_roles sur  on su.id=sur.uid 
+    left join monitor.sys_roles sr on sr.id=sur.uid 
+    where 
+    su.username like '%%' limit 0,10;
+[2022-08-08T13:45:02.734] [ERROR] application - Executing (default): SELECT FOUND_ROWS() AS count
+[2022-08-08T13:45:30.389] [ERROR] application - Executing (default): select 
+    su.*,sr.roleName ,sr.id roleId
+    from 
+    monitor.sys_users su
+    left join monitor.sys_user_roles sur  on su.id=sur.uid 
+    left join monitor.sys_roles sr on sr.id=sur.uid 
+    where 
+    su.username like '%%' limit 0,10;
+[2022-08-08T13:45:30.417] [ERROR] application - Executing (default): SELECT FOUND_ROWS() AS count
+[2022-08-08T13:46:53.716] [ERROR] application - Executing (default): select 
+    su.id ,su.username ,su.email ,su.phone ,su.status ,sr.roleName ,sr.id roleId ,su.createdAt ,su.updatedAt
+    from 
+    monitor.sys_users su
+    left join monitor.sys_user_roles sur  on su.id=sur.uid 
+    left join monitor.sys_roles sr on sr.id=sur.rid 
+    where 
+    su.username like '%%' limit 0,10;
+[2022-08-08T13:46:53.750] [ERROR] application - Executing (default): SELECT FOUND_ROWS() AS count
+[2022-08-08T13:47:05.096] [ERROR] application - Executing (default): select 
+    su.id ,su.username ,password,su.email ,su.phone ,su.status ,sr.roleName ,sr.id roleId ,su.createdAt ,su.updatedAt
+    from 
+    monitor.sys_users su
+    left join monitor.sys_user_roles sur  on su.id=sur.uid 
+    left join monitor.sys_roles sr on sr.id=sur.rid 
+    where 
+    su.username like '%%' limit 0,10;
+[2022-08-08T13:47:05.127] [ERROR] application - Executing (default): SELECT FOUND_ROWS() AS count
