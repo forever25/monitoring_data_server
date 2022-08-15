@@ -4,46 +4,46 @@ import regular from '@/utils/regular'
 class Users extends Model { }
 
 Users.init({
-    username: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-        validate: {
-            is: regular.name,
-        },
-        comment: "用户名"
+  username: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true,
+    validate: {
+      is: regular.name,
     },
-    password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        comment: "密码"
+    comment: "用户名"
+  },
+  password: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    comment: "密码"
+  },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    validate: {
+      isEmail: true,
     },
-    email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            isEmail: true,
-        },
-        comment: "电子邮件"
+    comment: "电子邮件"
+  },
+  phone: {
+    type: DataTypes.STRING,
+    validate: {
+      is: regular.phone,
     },
-    phone: {
-        type: DataTypes.STRING,
-        validate: {
-            is: regular.phone,
-        },
-        comment: '手机号码'
+    comment: '手机号码'
+  },
+  status: {
+    type: DataTypes.INTEGER,
+    defaultValue: 0,
+    validate: {
+      isNumeric: true,
     },
-    status: {
-        type: DataTypes.INTEGER,
-        defaultValue: 0,
-        validate: {
-            isNumeric: true,
-        },
-        comment: '0激活,1禁用,2回收站'
-    }
+    comment: '0激活,1禁用,2回收站'
+  }
 }, {
-    sequelize,
-    tableName: 'sys_users'
+  sequelize,
+  tableName: 'sys_users'
 });
 
 export default Users;

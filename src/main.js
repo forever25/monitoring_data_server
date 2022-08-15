@@ -13,7 +13,8 @@ import config from './config'
 const jwt = JWT({ secret: config.JWT_SECRET }).unless({
     path: [
         /\/user/,
-        /\/role/
+        /\/role/,
+        /\/dataCollection/,
     ]
 });
 const bodyParser = BodyParser({

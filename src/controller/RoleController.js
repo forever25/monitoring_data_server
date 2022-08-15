@@ -1,7 +1,7 @@
 /*
  * @Author: zws
  * @Date: 2021-05-28 17:08:59
- * @LastEditTime: 2022-08-09 15:29:03
+ * @LastEditTime: 2022-08-15 15:48:34
  * @LastEditors: GY\wangshengz wangshengz@goyu-ai.com
  * @Description: 用户权限表控制类
  * @FilePath: \serve\src\controller\RoleController.js
@@ -18,8 +18,7 @@ class RoleController {
      * @return {*}
      */
     async list(ctx) {
-
-        let { pageIndex, pageSize, roleName = '' } = ctx.request.body
+        let { pageIndex, pageSize, roleName = '', status } = ctx.request.body
         pageIndex = Number(pageIndex)
         pageSize = Number(pageSize)
 
@@ -29,15 +28,23 @@ class RoleController {
             return
         }
 
+        const where = {
+            roleName: {
+                [Op.like]: `%${roleName}%`
+            }
+        }
+
+        if (status !== undefined) {
+            where.status = {
+                status
+            }
+        }
+
         // // 查找所有角色，并进行分页
         const records = await Roles.findAndCountAll({
             offset: (pageIndex - 1) * pageSize,
             limit: pageSize - 0,
-            where: {
-                roleName: {
-                    [Op.like]: `%${roleName}%`
-                }
-            }
+            where
         })
         ctx.body = responseTemplate({
             records: records.rows,
@@ -47,6 +54,7 @@ class RoleController {
     }
 
     async save(ctx) {
+        console.log(ctx);
         let { roleCode, roleName, isDefault = 0 } = ctx.request.body
         isDefault = Number(isDefault)
         if (!roleCode && !roleName) {
@@ -70,18 +78,17 @@ class RoleController {
                     }
                 });
         }
-
         ctx.body = responseTemplate(role)
-
     }
 
     async patch(ctx) {
         const { id } = ctx.params
-        const { roleCode, roleName, isDefault } = ctx.request.body
+        const { roleCode, roleName, isDefault, status } = ctx.request.body
         const updateData = {
             roleCode,
             roleName,
-            isDefault
+            isDefault,
+            status
         }
         deleteObjectUndefined(updateData)
 
@@ -98,7 +105,7 @@ class RoleController {
 
     async del(ctx) {
         const { id } = ctx.params
-        if (id) {
+        if (!id) {
             return ctx.body = responseTemplate('请传入id', 500)
         }
         await Roles.destroy({
