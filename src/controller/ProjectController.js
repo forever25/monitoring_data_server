@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-22 15:25:56
- * @LastEditTime: 2022-08-09 15:29:46
+ * @LastEditTime: 2022-08-15 16:06:07
  * @LastEditors: GY\wangshengz wangshengz@goyu-ai.com
  * @Description: In User Settings Edit
  * @FilePath: \serve\src\controller\ProjectController.js
@@ -9,6 +9,7 @@
 import { responseTemplate } from '@/utils/responseTemplate';
 import Project from '@/db/models/Project'
 import { deleteObjectUndefined } from "@/utils/tools"
+import { Op } from "@/db/sequelize"
 class ProjectController {
     /**
      * @description: 获取用户列表
@@ -16,35 +17,31 @@ class ProjectController {
      * @return {*}
      */
     async list(ctx) {
-        try {
-            let { pageIndex, pageSize, projectName = '' } = ctx.request.body
-            pageIndex = Number(pageIndex)
-            pageSize = Number(pageSize)
+        let { pageIndex, pageSize, projectName = '' } = ctx.request.body
+        pageIndex = Number(pageIndex)
+        pageSize = Number(pageSize)
 
-            // 判断页码类型和值是否合法
-            if (pageIndex !== pageIndex || pageSize !== pageSize || pageIndex <= 0 || pageSize <= 0) {
-                ctx.body = responseTemplate('选择正确的页码', -1)
-                return
-            }
-
-            // // 查找所有角色，并进行分页
-            const records = await Project.findAndCountAll({
-                offset: (pageIndex - 1) * pageSize,
-                limit: pageSize,
-                where: {
-                    projectName: {
-                        [Op.like]: `%${projectName}%`
-                    }
-                }
-            })
-            ctx.body = responseTemplate({
-                records: records.rows,
-                total: records.count,
-            })
-        } catch (error) {
-            console.log(ctx)
-            ctx.body = responseTemplate('请求失败', 500)
+        // 判断页码类型和值是否合法
+        if (pageIndex !== pageIndex || pageSize !== pageSize || pageIndex <= 0 || pageSize <= 0) {
+            ctx.body = responseTemplate('选择正确的页码', -1)
+            return
         }
+
+        const records = await Project.findAndCountAll({
+            offset: (pageIndex - 1) * pageSize,
+            limit: pageSize,
+            where: {
+                projectName: {
+                    [Op.like]: `%${projectName}%`
+                }
+            }
+        })
+        console.log(records)
+        ctx.body = responseTemplate({
+            records: records.rows,
+            total: records.count,
+        })
+
     }
 
     async save(ctx) {
@@ -78,18 +75,16 @@ class ProjectController {
                 id
             }
         })
-        ctx.body = responseTemplate({
-            message: '更新成功'
-        })
+        ctx.body = responseTemplate('更新成功', 200)
 
     }
 
     async del(ctx) {
         const { id } = ctx.params
-        if (id) {
+        if (id === undefined) {
             return ctx.body = responseTemplate('请传入id', 500)
         }
-        await Roles.destroy({
+        await Project.destroy({
             where: {
                 id
             }

@@ -6,12 +6,12 @@ Dictionaries.init({
   projectName: {
     type: DataTypes.STRING,
     allowNull: false,
-    unique: true,
     comment: '项目名称'
   },
   projectToken: {
     type: DataTypes.STRING,
     allowNull: false,
+    unique: true,
     comment: '项目token'
   },
   projectDescribe: {

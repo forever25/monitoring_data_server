@@ -1,7 +1,7 @@
 /*
  * @Author: zws
  * @Date: 2021-05-28 17:08:59
- * @LastEditTime: 2022-08-09 15:32:38
+ * @LastEditTime: 2022-08-15 15:09:18
  * @LastEditors: GY\wangshengz wangshengz@goyu-ai.com
  * @Description: 用户权限表控制类
  * @FilePath: \serve\src\controller\UserController.js
@@ -136,7 +136,7 @@ class UserController {
 
     // 用户和角色关联
     if (roleId) {
-      await UserController.updateUserRole(user.id, roleId)
+      await UserController.updateUserRole(id, roleId)
     }
     ctx.body = responseTemplate({
       message: '更新成功'
