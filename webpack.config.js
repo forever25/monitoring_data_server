@@ -8,12 +8,11 @@ const package = require('./package.json');
 const webpackConfig = {
     target: 'node',
     // mode: 'development',
-    mode: 'production',
     entry: { main: path.join(__dirname, 'src/main.js'), vendor: Object.keys(package.dependencies) },
     output: {
         path: path.join(__dirname, 'dist'),
         filename: '[name].js',
-        publicPath: '/'
+        publicPath: './'
     },
     // externals: externals,
     module: {
@@ -27,7 +26,9 @@ const webpackConfig = {
             // { test: /\.ts$/, exclude: /node_modules/, loader: 'ts-loader' }
         ],
     },
-    externals: [nodeExternals()],
+    externals: [
+        nodeExternals()
+    ],
     plugins: [
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin({
@@ -51,4 +52,8 @@ const webpackConfig = {
         }
     }
 };
+
+if (process.env.NODE_ENV == 'production') {
+    webpackConfig.externals = [];
+}
 module.exports = webpackConfig;
