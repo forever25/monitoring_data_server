@@ -7,7 +7,7 @@ const package = require('./package.json');
 
 const webpackConfig = {
     target: 'node',
-    mode: process.env.NODE_ENV || 'development',
+    mode: 'development',
     entry: { main: path.join(__dirname, 'src/main.js'), vendor: Object.keys(package.dependencies) },
     output: {
         path: path.join(__dirname, 'dist'),
@@ -53,7 +53,5 @@ const webpackConfig = {
     }
 };
 
-if (process.env.NODE_ENV == 'production') {
-    webpackConfig.externals = [];
-}
+
 module.exports = webpackConfig;

@@ -1,34 +1,44 @@
 {
-    "presets": [
-        [
-            "@babel/preset-env",
-            {
-                "targets": {
-                    "node": "current"
-                }
-            }
-        ]
-    ],
-    "env": {
-        "test": {
-            "plugins": [
-                [
-                    "babel-plugin-webpack-aliases",
-                    {
-                        "config": "./webpack.config.js"
-                    }
-                ]
-            ]
-        },
-        "seed": {
-            "plugins": [
-                [
-                    "babel-plugin-webpack-aliases",
-                    {
-                        "config": "./webpack.config.js"
-                    }
-                ]
-            ]
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current"
         }
+      }
+    ]
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        [
+          "babel-plugin-webpack-aliases",
+          {
+            "config": "./webpack.config.js"
+          }
+        ]
+      ]
+    },
+    "seed": {
+      "plugins": [
+        [
+          "babel-plugin-webpack-aliases",
+          {
+            "config": "./webpack.config.js"
+          }
+        ]
+      ]
+    },
+    "development": {
+      "plugins": [
+        [
+          "babel-plugin-webpack-aliases",
+          {
+            "config": "./webpack.config.js"
+          }
+        ]
+      ]
     }
+  }
 }
