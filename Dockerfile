@@ -1,11 +1,12 @@
-FROM node:16 as builder
-WORKDIR /app
-RUN npm i -g pnpm
-RUN pnpm install
-RUN pnpm build
-
 FROM node:16
+
+#镜像标签
+LABEL author = "zws"
+LABEL version = "1.0"
+LABEL description = "前端监控系统"
+
 WORKDIR /app
-COPY --from=builder /app/out .
+ADD . /app
+RUN npm install pm2 -g && yarn install
 EXPOSE 3001
-CMD ["node" "dist.js"]
+CMD [ "yarn", "run","start-server"]

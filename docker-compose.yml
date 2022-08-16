@@ -1,0 +1,30 @@
+version: '3.0'
+services:
+
+  mysql:
+    image: mysql  #mysql服务
+    command: 
+      --default-authentication-plugin=mysql_native_password
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --explicit_defaults_for_timestamp=true
+      --lower_case_table_names=1
+      --max_allowed_packet=128M;
+    ports:
+        - "9011:3306"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "nrllxsdswdx"
+      MYSQL_DATABASE: "monitor"
+    networks:
+      - docker-node
+  node-web:  #node 服务
+    build: ./
+    ports:
+      - "9012:3001"
+    depends_on: #web服务依靠mysql 要先等mysql启动
+      - mysql
+    networks:
+      - docker-node
+networks: #定义服务的桥 用来服务连接
+  docker-node:

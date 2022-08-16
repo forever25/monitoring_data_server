@@ -8,6 +8,8 @@
     "build": "cross-env NODE_ENV=production  webpack ",
     "dev": "nodemon --exec babel-node dist/main.js",
     "start": "cross-env NODE_ENV=development npm-run-all -p dev:w dev",
+    "dev-server": "pm2-runtime babel-node dist/main.js",
+    "start-server": "cross-env NODE_ENV=development npm-run-all -p dev:w dev-server",
     "seed": "cross-env NODE_ENV=seed babel-node src/db/seed.js",
     "seed:test": "cross-env NODE_ENV=seed nodemon --exec babel-node src/db/seed.js",
     "test": "cross-env NODE_ENV=test jest --runInBand --forceExit --colors"

@@ -7,7 +7,7 @@ const package = require('./package.json');
 
 const webpackConfig = {
     target: 'node',
-    // mode: 'development',
+    mode: process.env.NODE_ENV || 'development',
     entry: { main: path.join(__dirname, 'src/main.js'), vendor: Object.keys(package.dependencies) },
     output: {
         path: path.join(__dirname, 'dist'),
