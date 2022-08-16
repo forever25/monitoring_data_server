@@ -18,6 +18,8 @@ services:
       MYSQL_DATABASE: "monitor"
     networks:
       - docker-node
+    volumes:
+      - ./data-base:/var/lib/mysql
   node-web:  #node 服务
     build: ./
     ports:
@@ -26,5 +28,7 @@ services:
       - mysql
     networks:
       - docker-node
+    volumes:
+      - ./node-log:/app/log
 networks: #定义服务的桥 用来服务连接
   docker-node:
