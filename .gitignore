@@ -21,3 +21,4 @@ log/
 *.zip
 package-lock.json
 .env.production.local
+static/config.json

@@ -40,6 +40,11 @@ Users.init({
       isNumeric: true,
     },
     comment: '0激活,1禁用,2回收站'
+  },
+  projectToken: {
+    type: DataTypes.STRING,
+    defaultValue: "",
+    comment: "当前用户所属token"
   }
 }, {
   sequelize,

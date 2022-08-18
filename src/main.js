@@ -15,6 +15,7 @@ const jwt = JWT({ secret: config.JWT_SECRET }).unless({
         /\/user/,
         /\/role/,
         /\/dataCollection/,
+        /\/project/
     ]
 });
 const bodyParser = BodyParser({
@@ -23,11 +24,11 @@ const bodyParser = BodyParser({
 const middleware = compose([
     accessLogger(),
     errorHandler,
+    jwt,
     bodyParser,
     cors(),
     json(),
-    router(),
-    jwt
+    router()
 ]);
 const port = 3001;
 const app = new koa();

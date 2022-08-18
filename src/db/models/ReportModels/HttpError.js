@@ -1,12 +1,12 @@
 import { sequelize, Model, DataTypes } from '@/db/sequelize';
 
-class ResourceLoadingError extends Model { }
+class HttpError extends Model { }
 
-ResourceLoadingError.init({
-  token: {
+HttpError.init({
+  projectToken: {
     type: DataTypes.STRING,
     defaultValue: '',
-    comment: '项目token'
+    comment: '项目projectToken'
   },
   errorId: {
     type: DataTypes.STRING,
@@ -14,31 +14,35 @@ ResourceLoadingError.init({
     unique: true,
     comment: '错误id'
   },
-  title: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    defaultValue: '',
-    comment: '文档标题'
-  },
   url: {
     type: DataTypes.STRING,
     defaultValue: '',
     comment: 'url'
   },
+  method: {
+    type: DataTypes.STRING,
+    defaultValue: '',
+    comment: '请求方式'
+  },
   type: {
     type: DataTypes.STRING,
     defaultValue: "",
-    comment: '错误类型'
+    comment: '请求类型'
   },
-  tagName: {
+  body: {
     type: DataTypes.STRING,
-    defaultValue: '',
-    comment: '错误的标签名称'
+    defaultValue: "",
+    comment: '参数信息'
   },
-  fileName: {
+  res: {
     type: DataTypes.STRING,
-    defaultValue: '',
-    comment: '资源加载名称'
+    defaultValue: "",
+    comment: '返回信息'
+  },
+  status: {
+    type: DataTypes.BIGINT,
+    defaultValue: 0,
+    comment: '返回错误状态值'
   },
   timeStamp: {
     type: DataTypes.BIGINT,
@@ -50,9 +54,10 @@ ResourceLoadingError.init({
     defaultValue: '',
     comment: '浏览器版本信息'
   },
+
 }, {
   sequelize,
-  tableName: 'sys_resource_loading_error'
+  tableName: 'sys_http_error'
 });
 
-export default ResourceLoadingError;
+export default HttpError;

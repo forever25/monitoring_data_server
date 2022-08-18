@@ -3,10 +3,10 @@ import { sequelize, Model, DataTypes } from '@/db/sequelize';
 class JSRuntimeError extends Model { }
 
 JSRuntimeError.init({
-  token: {
+  projectToken: {
     type: DataTypes.STRING,
     defaultValue: '',
-    comment: '项目token'
+    comment: '项目projectToken'
   },
   errorId: {
     type: DataTypes.STRING,

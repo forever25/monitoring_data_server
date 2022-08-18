@@ -3,10 +3,10 @@ import { sequelize, Model, DataTypes } from '@/db/sequelize';
 class LoadTime extends Model { }
 
 LoadTime.init({
-  token: {
+  projectToken: {
     type: DataTypes.STRING,
     defaultValue: '',
-    comment: '项目token'
+    comment: '项目projectToken'
   },
   type: {
     type: DataTypes.STRING,

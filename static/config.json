@@ -2,7 +2,7 @@
   "MYSQL_DATABASE": "monitor",
   "MYSQL_USER": "root",
   "MYSQL_PASSWORD": "nrllxsdswdx",
-  "MYSQL_HOST": "mysql",
-  "MYSQL_PORT": "9011",
+  "MYSQL_HOST": "101.132.139.188",
+  "MYSQL_PORT": "9003",
   "JWT_SECRET": "aerfasjoijgjkfkslnfjahwejkjsakdnjkk"
 }
