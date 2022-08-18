@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-05-07 20:49:26
- * @LastEditTime: 2022-08-18 20:56:22
+ * @LastEditTime: 2022-08-18 21:12:23
  * @LastEditors: zws
  * @Description: In User Settings Edit
  * @FilePath: \monitoring_data_server\src\db\seed.js
@@ -15,7 +15,7 @@ const seedFiles = requireContext(path.join(__dirname, './seeds'), true, /\.js$/)
 (async () => {
     let pro = modelFiles.keys().map(async (fileName) => {
         let it = modelFiles(fileName);
-        await it.default.sync({ force: false })
+        await it.default.sync({ force: true })
         console.log(`已经同步模型${fileName}`);
     })
     await Promise.all(pro);
