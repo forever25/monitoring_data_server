@@ -1,10 +1,10 @@
 /*
  * @Author: your name
  * @Date: 2021-05-07 20:49:26
- * @LastEditTime: 2022-08-04 17:21:24
- * @LastEditors: GY\wangshengz wangshengz@goyu-ai.com
+ * @LastEditTime: 2022-08-18 20:56:22
+ * @LastEditors: zws
  * @Description: In User Settings Edit
- * @FilePath: \serve\src\db\seed.js
+ * @FilePath: \monitoring_data_server\src\db\seed.js
  */
 import path from 'path';
 import requireContext from 'require-context';
@@ -15,7 +15,7 @@ const seedFiles = requireContext(path.join(__dirname, './seeds'), true, /\.js$/)
 (async () => {
     let pro = modelFiles.keys().map(async (fileName) => {
         let it = modelFiles(fileName);
-        await it.default.sync({ force: true })
+        await it.default.sync({ force: false })
         console.log(`已经同步模型${fileName}`);
     })
     await Promise.all(pro);
