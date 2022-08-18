@@ -1,10 +1,10 @@
 /*
  * @Author: zws
  * @Date: 2021-05-28 17:08:59
- * @LastEditTime: 2022-08-17 15:12:54
- * @LastEditors: GY\wangshengz wangshengz@goyu-ai.com
+ * @LastEditTime: 2022-08-18 18:39:28
+ * @LastEditors: zws
  * @Description: 用户权限表控制类
- * @FilePath: \serve\src\controller\UserController.js
+ * @FilePath: \monitoring_data_server\src\controller\UserController.js
  */
 import Roles from '@/db/models/Roles'
 import UserToRoles from "@/db/models/UserToRoles"
@@ -31,7 +31,7 @@ export default {
  * @return {*}
  */
 async function list(ctx) {
-  let { pageIndex, pageSize, username = '', status } = ctx.request.body
+  let { pageIndex, pageSize, username = '', status } = ctx.request.query
   pageIndex = Number(pageIndex)
   pageSize = Number(pageSize)
   // 判断页码类型和值是否合法

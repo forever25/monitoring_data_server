@@ -1,10 +1,10 @@
 /*
  * @Author: your name
  * @Date: 2021-02-22 15:25:56
- * @LastEditTime: 2022-08-17 14:51:20
- * @LastEditors: GY\wangshengz wangshengz@goyu-ai.com
+ * @LastEditTime: 2022-08-18 18:38:34
+ * @LastEditors: zws
  * @Description: In User Settings Edit
- * @FilePath: \serve\src\controller\ProjectController.js
+ * @FilePath: \monitoring_data_server\src\controller\ProjectController.js
  */
 import { responseTemplate } from '@/utils/responseTemplate';
 import Project from '@/db/models/Project'
@@ -17,7 +17,7 @@ import { Op } from "@/db/sequelize"
  * @return {*}
  */
 async function list(ctx) {
-    let { pageIndex, pageSize, projectName = '' } = ctx.request.body
+    let { pageIndex, pageSize, projectName = '' } = ctx.request.query
     pageIndex = Number(pageIndex)
     pageSize = Number(pageSize)
 

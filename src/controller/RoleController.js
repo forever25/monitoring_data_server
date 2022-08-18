@@ -1,10 +1,10 @@
 /*
  * @Author: zws
  * @Date: 2021-05-28 17:08:59
- * @LastEditTime: 2022-08-17 15:05:08
- * @LastEditors: GY\wangshengz wangshengz@goyu-ai.com
+ * @LastEditTime: 2022-08-18 18:38:41
+ * @LastEditors: zws
  * @Description: 用户权限表控制类
- * @FilePath: \serve\src\controller\RoleController.js
+ * @FilePath: \monitoring_data_server\src\controller\RoleController.js
  */
 import Roles from '@/db/models/Roles'
 import { Op } from "@/db/sequelize"
@@ -16,7 +16,7 @@ import { deleteObjectUndefined } from "@/utils/tools"
  * @return {*}
  */
 async function list(ctx) {
-    let { pageIndex, pageSize, roleName = '', status } = ctx.request.body
+    let { pageIndex, pageSize, roleName = '', status } = ctx.request.query
     pageIndex = Number(pageIndex)
     pageSize = Number(pageSize)
 

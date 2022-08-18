@@ -1,10 +1,10 @@
 /*
  * @Author: your name
  * @Date: 2021-02-22 15:25:56
- * @LastEditTime: 2022-08-17 14:49:14
- * @LastEditors: GY\wangshengz wangshengz@goyu-ai.com
+ * @LastEditTime: 2022-08-18 18:39:52
+ * @LastEditors: zws
  * @Description: In User Settings Edit
- * @FilePath: \serve\src\controller\LoginController.js
+ * @FilePath: \monitoring_data_server\src\controller\LoginController.js
  */
 import jsonwebtoken from 'jsonwebtoken';
 import { responseTemplate } from '@/utils/responseTemplate';
@@ -98,7 +98,7 @@ async function registration(ctx) {
  * @return {*}
  */
 async function registration_verification(ctx) {
-    const { username } = ctx.request.body;
+    const { username } = ctx.request.query;
     const user = await Users.findOne({
         where: {
             username
