@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-22 15:25:56
- * @LastEditTime: 2022-08-18 18:39:52
+ * @LastEditTime: 2022-08-21 09:58:04
  * @LastEditors: zws
  * @Description: In User Settings Edit
  * @FilePath: \monitoring_data_server\src\controller\LoginController.js
@@ -66,7 +66,9 @@ async function registration(ctx) {
         }
     })
 
-    if (isUser?.id !== undefined) {
+    console.log(isUser)
+
+    if (!isUser) {
         const user = await Users.create({
             username,
             password,
